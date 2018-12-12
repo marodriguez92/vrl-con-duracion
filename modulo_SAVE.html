@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+	<title>Demo modulo SAVE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<body>
+		<div class="w3-sidebar w3-collapse w3-white w3-animate-left w3-large" style="z-index:3;width:300px;" id="mySidebar">
+			<div class="w3-bar w3-black w3-center">
+				<a class="w3-bar-item w3-button" style="width:50%" href="javascript:void(0)" onclick="openNav('nav01')">PASO</a>
+				<a class="w3-bar-item w3-button" style="width:50%" href="javascript:void(0)" onclick="openNav('nav02')">FILTRO</a>
+			</div>
+
+			<div id="nav01" class="w3-bar-block">
+				<h1 class="w3-text-theme">Total de llamadas</h1>
+				<div id="div_simulate">
+					<a onclick="simulate(grafo.links_list)" class="w3-bar-item w3-button">RECORRER</a>
+				</div>
+				<div id="div_stop" hidden>
+					<a onclick="stop_simulation()" class="w3-bar-item w3-button">PARAR</a>
+				</div>
+				<div id="div_start">
+					<a onclick="first_step(grafo.links_list)" class="w3-bar-item w3-button">INICIAR</a>
+				</div>
+				<div id="div_next" hidden>
+					<a onclick="next_step(grafo.links_list)" class="w3-bar-item w3-button">SIGUIENTE</a>
+				</div>
+				<div id="div_prev" hidden>
+					<a onclick="previous_step(grafo.links_list)" class="w3-bar-item w3-button">ANTERIOR</a>
+				</div>
+				<div id="details" class="w3-bar-item w3-button"></div>
+				<div id='div_calls_list' hidden>
+					<h3 class="w3-text-theme">Listado</h1>
+					<select id='select_calls' style="padding-bottom: 10px;" size="10" onchange="indexed_step(grafo.links_list)"></select>
+				</div>
+			</div>
+
+			<div id="nav02" class="w3-bar-block">
+				<h1 class="w3-text-theme">Llamadas a filtrar</h1>
+				<form id="form_filtro">
+					Llamante (Nro.):<br>
+					<input type="text" name="llamante">
+					<br>
+					Llamado (Nro.):<br>
+					<input type="text" name="llamado">
+					<br>
+					Fecha inicio:<br>
+					<input type="date" name="f_inicio">
+					<br>
+					Fecha fin:<br>
+					<input type="date" name="f_fin">
+					<br><br>
+				</form>
+				<a onclick="analyze_form()" class="w3-bar-item w3-button">FILTRAR</a>
+				<div id="div_simulate_filter">
+					<a onclick="simulate(filtered_links_list, '_filter')" class="w3-bar-item w3-button">SIMULAR</a>
+				</div>
+				<div id="div_stop_filter" hidden>
+					<a onclick="stop_simulation('_filter')" class="w3-bar-item w3-button">PARAR</a>
+				</div>
+				<div id="div_start_filter" hidden>
+					<a onclick="first_step(filtered_links_list, '_filter')" class="w3-bar-item w3-button">INICIAR</a>
+				</div>
+				<div id="div_next_filter" hidden>
+					<a onclick="next_step(filtered_links_list, '_filter')" class="w3-bar-item w3-button">SIGUIENTE</a>
+				</div>
+				<div id="div_prev_filter" hidden>
+					<a onclick="previous_step(filtered_links_list, '_filter')" class="w3-bar-item w3-button">ANTERIOR</a>
+				</div>
+				<div id="details_filter" class="w3-bar-item w3-button"></div>
+				<div id='div_calls_list_filter' hidden>
+					<h3 class="w3-text-theme">Listado</h1>
+					<select id='select_calls_filter' size="10" onchange="indexed_step(filtered_links_list, '_filter')"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+		<div class="w3-main" style="margin-left:300px;"> 
+			<div class="w3-top w3-theme w3-large w3-hide-large">
+				<i class="fa fa-bars w3-button w3-teal w3-xlarge" onclick="w3_open()"></i>
+			</div>
+
+			<div class="w3-container w3-padding-large w3-section w3-light-grey">
+				<div id="cy"></div>
+
+			</div>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js"> </script>
+		<script src="./scripts/Cytoscape/cytoscape.js"></script>
+		<script src="./scripts/generate_grafo.js"> </script>
+		<script src="./scripts/xml_handler.js"> </script>
+		<script src="./scripts/drawing.js"> </script>
+		<script src="./scripts/main.js"> </script>
+		<script src="./scripts/show_link.js"> </script>
+		<script src="./scripts/go_over_links.js"> </script>
+		<script src="./scripts/filter_form.js"> </script>
+		<script src="./scripts/web_page_functions.js"> </script>
+		<script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+		<script> w3CodeColor(); </script>
+	</body>
+</html> 

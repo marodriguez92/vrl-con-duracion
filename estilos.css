@@ -1,0 +1,12 @@
+#cy {
+    width: 1000px;
+    height: 1000px;
+    display: block;
+}
+
+#asd {
+	z-index: 999 !important; 
+	position: absolute !important;
+    top: 2% !important;
+    left: 80% !important;
+}
