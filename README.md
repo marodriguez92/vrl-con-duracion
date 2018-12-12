@@ -32,7 +32,8 @@ Todo el módulo se desarrolló en JavaScript.
 Las funciones que se encargan de leer el XML y crear un Objeto XML para luego tratar, se encuentran 
 en el submódulo "xml_handler.js".
 
-Luego, se tiene el submódulo "generate_grafo.js". En este se encuentran las siguientes funciones:
+Luego, se tiene el submódulo "generate_grafo.js". En este se encuentran las siguientes funciones: 
+
 get_nodes_list(XML xml)
 ----------------------- 
 	Devuelve la lista de Objetos Nodo a partir del Objeto XML. El Objeto 
@@ -54,6 +55,7 @@ get_nodes_max_coordinates()
 	Obtiene x,y máximas de las coordenadas de los nodos, para establecer el tamaño del gráfico.
 
 En el submódulo "drawing.js", se tienen las siguientes funciones: 
+
 draw_grafo()
 ------------
 	Dibuja el grafo, dibujando los nodos y enlaces. Utiliza la librería "Cytoscape". 
@@ -74,6 +76,7 @@ Para realizar la animación de la llamada que se está haciendo referencia, con 
 se encargan las funciones alojadas en "go_over_links.js" y "show_link.js".
 
 El submódulo "go_over_links.js", contiene las siguientes funciones: 
+
 first_step(List list, String which)
 ---------------------------------
 	Pone el paso en cero, apaga los nodos del paso anterior y prende los nodos que estan hablando.
@@ -95,7 +98,8 @@ indexed_step(List list, String which)
 	indica sobre qué vista se está trabajando, si sobre la del paso del total de las llamadas o sobre la 
 	vista del filtro.
 
-El submódulo "show_link.js", contiene las siguientes funciones:
+El submódulo "show_link.js", contiene las siguientes funciones: 
+
 turn_on_nodes(Link link)
 ------------------------
 	Cambia el color de los nodos y enlaces a prender. Se le pasa el enlace como argumento para conocer la
@@ -115,6 +119,7 @@ get_calls_list(List list, which)
 
 
 La función referida al formulario de filtro, se encuentra alojada en "filter_form". Esta es: 
+
 analyze_form()
 --------------
 	Genera la lista de llamadas en base al filtro que se ingreso. A su vez, reincia la vista del filtro. 
